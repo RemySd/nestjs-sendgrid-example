@@ -9,21 +9,13 @@ export class SendGridService {
     sgMail.setApiKey(this.configService.get<string>('SENDGRID_API_KEY'));
   }
 
-  async sendEmail(
-    to: string,
-    subject: string,
-    text: string,
-    html: string,
-  ): Promise<void> {
+  async sendEmail(to: string, subject: string, html: string): Promise<void> {
     const msg = {
       to,
       from: this.configService.get<string>('SENDGRID_FROM_EMAIL'),
       subject,
-      text,
       html,
     };
-
-   
 
     try {
       await sgMail.send(msg);

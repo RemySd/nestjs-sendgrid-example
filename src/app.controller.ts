@@ -19,7 +19,6 @@ export class AppController {
     this.sendgridService.sendEmail(
       'remy.sainsard@gmail.com',
       'test',
-      'test text',
       '<p>html content</p>',
     );
   }
